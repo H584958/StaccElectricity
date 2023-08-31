@@ -9,8 +9,8 @@
 /stacc-challenge-public/coverage
 
 # next.js
-/stacc-challenge-public/.next/
-/stacc-challenge-public/out/
+/stacc-challenge-public/.next
+/stacc-challenge-public/out
 
 # production
 /stacc-challenge-public/build
