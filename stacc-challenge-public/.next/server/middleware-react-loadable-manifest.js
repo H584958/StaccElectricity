@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"index.js -> ../components/DataCostModule":{"id":"index.js -> ../components/DataCostModule","files":["static/chunks/components_DataCostModule_jsx.js"]}}

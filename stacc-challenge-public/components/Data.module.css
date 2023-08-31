@@ -1,0 +1,50 @@
+.price_card {
+  background-color: white;
+  border-radius: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 10px;
+}
+.chart_container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 150px; 
+}
+
+.custom_checkbox {
+  display: none;
+}
+
+.custom_checkbox_label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 5px 5px;
+  min-width: 120px;
+  border: 2px solid #ad362b; 
+  text-align: center; 
+  color: #ad362b;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom_checkbox:checked + .custom_checkbox_label {
+  background-color: #ad362b;
+  color: white;
+}
+
+.custom_checkbox_label:hover {
+  background-color: #d36f66;
+  color: white;
+}

@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+  api:
+    build: ./API
+    image: staccapi
+    ports:
+      - "3306:3306"
+    command: bash -c "cd API && pip install --no-cache-dir --upgrade -r requirements.txt && uvicorn main:app --proxy-headers --host 0.0.0.0 --port 3306" 
+    volumes:
+      - ./API:/API
+  app:
+    build: ./stacc-challenge-public
+    image: staccapp
+    depends_on:
+      - api
+    ports: 
+      - "3000:3000"
+    command: bash -c "cd staccapp && npm install && npm run dev"
+    volumes:
+      - ./stacc-challenge-public:/staccapp
