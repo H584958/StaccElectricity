@@ -1,19 +1,19 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+stacc-challenge-public/node_modules
+stacc-challenge-public/.pnp
 .pnp.js
 
 # testing
-/coverage
+stacc-challenge-public/coverage
 
 # next.js
-/.next/
-/out/
+stacc-challenge-public/.next/
+stacc-challenge-public/out/
 
 # production
-/build
+stacc-challenge-public/build
 
 # misc
 .DS_Store
