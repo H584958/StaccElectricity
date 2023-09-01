@@ -50,6 +50,42 @@ export default function ComparisonModule() {
 
     return convertedItem;
   });
+
+  const winterConsumption =
+    convertedConsumptionData.reduce((sum, item) => sum + item.consumption, 0) /
+    consumptionData.length;
+
+  const seasonConsumptionRates = {
+    winter: 1.0,
+    spring: 0.8,
+    summer: 0.6,
+    fall: 0.8,
+  };
+
+  function daysInSeason(season) {
+    const days = {
+      winter: 90,
+      spring: 92,
+      summer: 92,
+      fall: 91,
+    };
+    return days[season];
+  }
+
+  const annualConsumption = Object.keys(seasonConsumptionRates).reduce(
+    (sum, season) => {
+      return (
+        sum +
+        winterConsumption *
+          seasonConsumptionRates[season] *
+          daysInSeason(season)
+      );
+    },
+    0
+  );
+
+  console.log(annualConsumption);
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
