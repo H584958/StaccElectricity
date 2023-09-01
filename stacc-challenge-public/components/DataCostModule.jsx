@@ -18,9 +18,9 @@ async function fetchConsumptionData() {
 export default function DataCostModule() {
   const [data, setData] = useState(null);
   const [consumptionData, setConsumptionData] = useState(null);
-  const [showCost, setShowCost] = useState(true);
+  const [showCost, setShowCost] = useState(false);
   const [showPrice, setShowPrice] = useState(true);
-  const [showConsumption, setShowConsumption] = useState(true);
+  const [showConsumption, setShowConsumption] = useState(false);
 
   useEffect(() => {
     Promise.all([fetchData(), fetchConsumptionData()]).then(
