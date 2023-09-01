@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProviderList.module.css';
 import { ProviderCard } from './';
 
-export default function ProviderList({ providers }) {
+export default function ProviderList({ providers, monthlyConsumption }) {
   return (
     <div className={styles.providerList}>
       <div className={styles.listHeader}>
@@ -12,7 +12,11 @@ export default function ProviderList({ providers }) {
       </div>
       <div className={styles.cardList}>
         {providers.map((provider, index) => (
-          <ProviderCard key={index} provider={provider} />
+          <ProviderCard
+            key={index}
+            provider={provider}
+            monthlyConsumption={monthlyConsumption}
+          />
         ))}
       </div>
     </div>

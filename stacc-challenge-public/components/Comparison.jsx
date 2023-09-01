@@ -13,6 +13,8 @@ async function fetchProvidersData() {
 export default function ComparisonModule() {
   const [consumptionData, setConsumptionData] = useState(null);
   const [providersData, setProvidersData] = useState(null);
+  const [inputValue, setInputValue] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     Promise.all([fetchConsumptionData(), fetchProvidersData()]).then(
@@ -27,6 +29,7 @@ export default function ComparisonModule() {
     return <div className={styles.container}>Loading...</div>;
   const convertedConsumptionData = consumptionData.map((item) => {
     return {
+      month: new Date(item.to).getMonth(),
       consumption: item.consumption,
     };
   });
@@ -84,23 +87,88 @@ export default function ComparisonModule() {
     0
   );
 
-  console.log(annualConsumption);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    // Validate input to allow only numbers in the range from 0 to 2000000
+    if (/^\d*$/.test(value) && Number(value) >= 0 && Number(value) <= 2000000) {
+      setInputValue(value);
+    }
+  };
+
+  const handleCalculateConsumption = () => {
+    setInputValue(Math.round(annualConsumption));
+  };
+
+  const handleCalculatePrices = () => {
+    if (inputValue !== '') {
+      setIsOpen(true);
+    }
+  };
+
+  const monthlyConsumption = (month) => {
+    let season;
+    if (month >= 1 && month <= 3) {
+      season = 'winter';
+    } else if (month >= 4 && month <= 6) {
+      season = 'spring';
+    } else if (month >= 7 && month <= 9) {
+      season = 'summer';
+    } else {
+      season = 'fall';
+    }
+    const monthlyConsumption =
+      (annualConsumption / 12) * seasonConsumptionRates[season];
+    return monthlyConsumption;
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div>
-          <h1>Compare deals</h1>
-          <p>Enter your yearly consumption</p>
-          <input></input>
+        <div className={styles.comparisonContainer}>
+          <h1 className={styles.h1}>Compare deals</h1>
           <div>
-            <p>Based on you consumption</p>
-            <button>Calculate yearly consumption</button>
+            <div>
+              <h2>Fill in the annual electricity consumption</h2>
+              <p className={styles.p}>
+                Seen on your invoice. We use this to calculate the total price.
+              </p>
+            </div>
+            <div>
+              <input
+                className={styles.input}
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                placeholder="Calculated annual power consumption"
+              />
+              <div>
+                <p className={styles.p}>
+                  We can calculate your annual consumption based on your
+                  consumption the past 500 hours. Click here to try it.
+                </p>
+                <button
+                  className={styles.button}
+                  onClick={handleCalculateConsumption}
+                >
+                  Calculate yearly consumption
+                </button>
+              </div>
+            </div>
           </div>
-          <button>Check Prices</button>
+          <button
+            className={styles.buttonCheckPrices}
+            onClick={handleCalculatePrices}
+          >
+            Check Prices
+          </button>
         </div>
         <div>
-          <ProviderList providers={convertedProvidersData} />
+          {isOpen && (
+            <ProviderList
+              providers={convertedProvidersData}
+              monthlyConsumption={monthlyConsumption}
+            />
+          )}
         </div>
       </div>
     </div>
