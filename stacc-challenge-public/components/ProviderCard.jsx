@@ -50,7 +50,7 @@ export default function ProviderCard({ provider, monthlyConsumption }) {
                   </p>
                 </div>
                 <div className={styles.providerPrice}>
-                  {monthlyConsumption_ * provider.price}
+                  {(monthlyConsumption_ * provider.price).toFixed(2)}
                 </div>
               </div>
               <div className={styles.providerCard2}>
