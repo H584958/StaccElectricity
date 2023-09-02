@@ -1,4 +1,10 @@
 .line_chart {
-  width: 85%; 
+  width: 85%;
   position: relative;
+}
+
+@media (max-width: 650px) {
+  .line_chart {
+    width: 90%;
+  }
 }

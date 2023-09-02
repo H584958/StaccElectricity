@@ -128,14 +128,14 @@ export default function ComparisonModule() {
       <div className={styles.wrapper}>
         <div className={styles.comparisonContainer}>
           <h1 className={styles.h1}>Compare deals</h1>
-          <div>
-            <div>
+          <div className={styles.contentWrapper}>
+            <div className={styles.leftContent}>
               <h2>Fill in the annual electricity consumption</h2>
               <p className={styles.p}>
                 Seen on your invoice. We use this to calculate the total price.
               </p>
             </div>
-            <div>
+            <div className={styles.rightContent}>
               <input
                 className={styles.input}
                 type="text"

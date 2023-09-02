@@ -23,8 +23,27 @@
   font-size: 18px;
 }
 
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.leftContent {
+  flex: 1;
+  text-align: left;
+}
+
+.rightContent {
+  flex: 1;
+  text-align: center;
+  padding-left: 4rem;
+}
+
 .input {
-  width: 30%;
+  width: 100%;
   padding: 5px;
   border: 2px solid #ad362b;
   border-radius: 10px;
@@ -53,4 +72,20 @@
 .buttonCheckPrices:hover {
   background-color: #d36f66;
   color: white;
+}
+
+@media (max-width: 770px) {
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftContent {
+    text-align: center;
+  }
+
+  .rightContent {
+    padding-left: 0;
+    padding-top: 20px;
+  }
 }
