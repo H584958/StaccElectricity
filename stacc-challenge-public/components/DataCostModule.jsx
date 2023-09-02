@@ -49,8 +49,13 @@ export default function DataCostModule() {
       }
     );
   }, []);
-
-  if (!data || !consumptionData) return <div>Loading...</div>;
+  if (!data || !consumptionData) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.price_card}> </div>
+      </div>
+    );
+  }
 
   const filteredData = data.map((item) => ({
     ...item,
