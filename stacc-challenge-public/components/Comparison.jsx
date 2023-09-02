@@ -14,6 +14,7 @@ export default function ComparisonModule() {
   const [consumptionData, setConsumptionData] = useState(null);
   const [providersData, setProvidersData] = useState(null);
   const [inputValue, setInputValue] = useState('');
+  const [annualConsumption, setAnnualConsumption] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -75,7 +76,7 @@ export default function ComparisonModule() {
     return days[season];
   }
 
-  const annualConsumption = Object.keys(seasonConsumptionRates).reduce(
+  const annualConsumption_ = Object.keys(seasonConsumptionRates).reduce(
     (sum, season) => {
       return (
         sum +
@@ -86,24 +87,6 @@ export default function ComparisonModule() {
     },
     0
   );
-
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    // Validate input to allow only numbers in the range from 0 to 2000000
-    if (/^\d*$/.test(value) && Number(value) >= 0 && Number(value) <= 2000000) {
-      setInputValue(value);
-    }
-  };
-
-  const handleCalculateConsumption = () => {
-    setInputValue(Math.round(annualConsumption));
-  };
-
-  const handleCalculatePrices = () => {
-    if (inputValue !== '') {
-      setIsOpen(true);
-    }
-  };
 
   const monthlyConsumption = (month) => {
     let season;
@@ -119,6 +102,25 @@ export default function ComparisonModule() {
     const monthlyConsumption =
       (annualConsumption / 12) * seasonConsumptionRates[season];
     return monthlyConsumption;
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    // Validate input to allow only numbers in the range from 0 to 2000000
+    if (/^\d*$/.test(value) && Number(value) >= 0 && Number(value) <= 2000000) {
+      setInputValue(value);
+    }
+  };
+
+  const handleCalculateConsumption = () => {
+    setInputValue(Math.round(annualConsumption_));
+  };
+
+  const handleCalculatePrices = () => {
+    if (inputValue !== '') {
+      setAnnualConsumption(inputValue);
+      setIsOpen(true);
+    }
   };
 
   return (

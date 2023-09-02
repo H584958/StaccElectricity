@@ -8,7 +8,9 @@ export default function ProviderList({ providers, monthlyConsumption }) {
       <div className={styles.listHeader}>
         <div className={styles.headerItem}>Providers</div>
         <div className={styles.headerItem}>Price per kWh</div>
-        <div className={styles.headerItem}>Total calculated price</div>
+        <div className={styles.headerItem}>
+          Total calculated price for previous month
+        </div>
       </div>
       <div className={styles.cardList}>
         {providers.map((provider, index) => (
