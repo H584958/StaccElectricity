@@ -31,7 +31,6 @@
 }
 
 .moreInfo {
-  border: 1px solid black;
   padding: 10px;
   margin-top: 10px;
   transition: max-height 2s cubic-bezier(0.25, 0.1, 0.89, 0.54),
@@ -48,4 +47,33 @@
 
 .button:hover {
   background-color: #d36f66;
+}
+
+.providerCard {
+  background-color: rgb(227, 227, 227);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.providerCard2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.providerCardTotal {
+  margin-top: 10px;
+  border: 1px solid #c3c3c3;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.providerInfo {
+  flex: 1;
+}
+
+.providerPrice {
+  font-weight: bold;
 }
