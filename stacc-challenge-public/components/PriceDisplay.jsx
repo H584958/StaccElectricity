@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Data.module.css';
+import styles from './PriceDisplay.module.css';
 import Chart from './Chart';
 
 async function fetchData() {
@@ -15,7 +15,7 @@ async function fetchConsumptionData() {
   return await fetch('/api/consumption').then((res) => res.json());
 }
 
-export default function DataCostModule() {
+export default function PriceDisplay() {
   const [data, setData] = useState(null);
   const [consumptionData, setConsumptionData] = useState(null);
   const [showCost, setShowCost] = useState(false);

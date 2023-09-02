@@ -5,7 +5,7 @@ import { Comparison } from '../components';
 // We have to import the chart this way because it creates some errors if not.
 // You have to do the same if you want to import a component that uses the Rechart library.
 
-const DataCostModule = dynamic(() => import('../components/DataCostModule'), {
+const PriceDisplay = dynamic(() => import('../components/PriceDisplay'), {
   ssr: false,
 });
 
@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <DataCostModule />
-      <Comparison/>
+      <PriceDisplay />
+      <Comparison />
     </main>
   );
 }
