@@ -14,7 +14,7 @@ export default function ProviderCard({ provider, monthlyConsumption }) {
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <p>{provider.name}</p>
-        <p>{provider.price.toFixed(2)} kWh</p>
+        <p>{provider.price.toFixed(2)} Cents/kWh</p>
         <p>{(monthlyConsumption_ * 1.25 * provider.price).toFixed(2)} NOK</p>
       </div>
       <div className={styles.cardInformation}>
@@ -46,7 +46,10 @@ export default function ProviderCard({ provider, monthlyConsumption }) {
                 <div className={styles.providerInfo}>
                   <h4>Price on the power exchange</h4>
                   <p>
-                    Average monthly price during the {provider.month} month.
+                    Average monthly price during the previous month.
+                  </p>
+                  <p>
+                  Your approximate consumption {monthlyConsumption_.toFixed(2)} kWh * {provider.price} øre
                   </p>
                 </div>
                 <div className={styles.providerPrice}>

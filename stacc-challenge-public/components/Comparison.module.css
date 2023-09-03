@@ -6,21 +6,13 @@
   padding: 40px;
 }
 .wrapper {
-  width: 700px;
+  max-width: 700px;
   height: 100%;
 }
 
 .comparisonContainer {
   text-align: center;
   padding: 20px;
-}
-
-.h1 {
-  font-size: 40px;
-}
-
-.p {
-  font-size: 18px;
 }
 
 .contentWrapper {
@@ -44,10 +36,12 @@
 
 .input {
   width: 100%;
+  height: 3rem;
   padding: 5px;
   border: 2px solid #ad362b;
   border-radius: 10px;
   text-align: center;
+  padding: 0 10px 0 10px;
 }
 
 .button {

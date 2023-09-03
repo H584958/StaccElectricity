@@ -67,10 +67,11 @@ export default function PriceDisplay() {
   return (
     <div className={styles.container}>
       <div className={styles.price_card}>
-        <h2>Electricity prices for your consumption</h2>
+        <h2>Electricity prices and your consumption in kWh</h2>
         <p>
           Below you will find the electricity prices within the relevant price
-          ranges retrieved from hvakosterstrommen.no.
+          ranges retrieved from hvakosterstrommen.no. You can aloso see your
+          consumption and how much each hour costs you.
         </p>
         <h3>Today's electricity prices</h3>
         <div className={styles.chart_container}>
@@ -112,7 +113,7 @@ export default function PriceDisplay() {
               htmlFor="consumption-checkbox"
               className={styles.custom_checkbox_label}
             >
-              Consumption
+              kWh
             </label>
           </div>
           <Chart data={filteredData} />

@@ -24,6 +24,7 @@
 .cardInfoBubble {
   border: 1px solid #ccc;
   border-radius: 40px;
+  font-size: 1.0rem;
   padding: 10px;
 }
 

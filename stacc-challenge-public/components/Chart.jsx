@@ -16,7 +16,7 @@ function Chart({ data }) {
     <div className={styles.line_chart}>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={data}>
-          <CartesianGrid strokeDasharray="5 5" />
+          <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="hour" label="Kl." />
           <YAxis />
           <Tooltip />

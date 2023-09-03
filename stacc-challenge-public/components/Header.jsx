@@ -10,7 +10,7 @@ export function Header() {
         />
         <h1> Stacc </h1>
       </header>
-      <h2 className={styles.toptext}>⚡ My electricity usage history ⚡</h2>
+      <h2 className={styles.toptext}>⚡ Electricity usage ⚡</h2>
     </div>
   );
 }

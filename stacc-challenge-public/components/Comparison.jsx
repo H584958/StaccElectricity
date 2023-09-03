@@ -56,8 +56,9 @@ export default function ComparisonModule() {
   });
 
   const winterConsumption =
-    convertedConsumptionData.reduce((sum, item) => sum + item.consumption, 0) /
-    consumptionData.length;
+    (convertedConsumptionData.reduce((sum, item) => sum + item.consumption, 0) /
+      consumptionData.length) *
+    24;
 
   const seasonConsumptionRates = {
     winter: 1.0,
@@ -89,12 +90,13 @@ export default function ComparisonModule() {
   );
 
   const monthlyConsumption = (month) => {
+    let month_ = (month - 1) % 11;
     let season;
-    if (month >= 1 && month <= 3) {
+    if (month_ >= 0 && month_ <= 2) {
       season = 'winter';
-    } else if (month >= 4 && month <= 6) {
+    } else if (month_ >= 3 && month_ <= 5) {
       season = 'spring';
-    } else if (month >= 7 && month <= 9) {
+    } else if (month_ >= 6 && month_ <= 9) {
       season = 'summer';
     } else {
       season = 'fall';
@@ -127,11 +129,11 @@ export default function ComparisonModule() {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.comparisonContainer}>
-          <h1 className={styles.h1}>Compare deals</h1>
+          <h1>Compare deals</h1>
           <div className={styles.contentWrapper}>
             <div className={styles.leftContent}>
               <h2>Fill in the annual electricity consumption</h2>
-              <p className={styles.p}>
+              <p>
                 Seen on your invoice. We use this to calculate the total price.
               </p>
             </div>
@@ -141,10 +143,10 @@ export default function ComparisonModule() {
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}
-                placeholder="Calculated annual power consumption"
+                placeholder="Annual power consumption"
               />
               <div>
-                <p className={styles.p}>
+                <p>
                   We can calculate your annual consumption based on your
                   consumption the past 500 hours. Click here to try it.
                 </p>
@@ -152,7 +154,7 @@ export default function ComparisonModule() {
                   className={styles.button}
                   onClick={handleCalculateConsumption}
                 >
-                  Calculate yearly consumption
+                  Calculate annual consumption
                 </button>
               </div>
             </div>
