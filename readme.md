@@ -20,7 +20,7 @@ uvicorn main:app --host 0.0.0.0 --port 3306 --reload
 
 Then you can open [http://localhost:3306](http://localhost:3306) with your browser to see the result.
 
-To run the application, from the root directory, tou need to run the following commands:
+To run the application, from the root directory, you need to run the following commands:
 
 ```bash
 cd ./stacc-challenge-public
