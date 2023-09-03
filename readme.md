@@ -4,7 +4,6 @@ There are multiple ways to run this applications, etiher through Docker or thoru
 
 **To use this repository you need to have [Node](https://nodejs.org/en/) and [Git](https://git-scm.com/) installed**
 
-
 ## Getting Started
 
 First, we need to clone the project, and install Uvicorn and FastAPI to run the API.
@@ -20,7 +19,6 @@ uvicorn main:app --host 0.0.0.0 --port 3306 --reload
 ```
 
 Then you can open [http://localhost:3306](http://localhost:3306) with your browser to see the result.
-
 
 To run the application, from the root directory, tou need to run the following commands:
 
@@ -44,7 +42,7 @@ The way I have set up docker depends on the repo being available externally. It 
 
 First you need to have installed Docker on your computer. You can download it [here](https://www.docker.com/products/docker-desktop)
 
-All you need to do is to check that you are in the correct folder (StaccChallenge) and run:
+All you need to do is to run the following command from the root directory:
 
 ```bash
 docker-compose up -d
