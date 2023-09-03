@@ -4,10 +4,9 @@ import Chart from './Chart';
 
 async function fetchData() {
   const response = await fetch(
-    'https://www.hvakosterstrommen.no/api/v1/prices/2023/01-06_NO1.json'
+    'http://localhost:3306/electricityprice?year=2023&month=01&day=06'
   );
-  // 'http://localhost:3306/electricityprice?year=2023&month=01&day=06',
-  // { mode: 'no-cors' }
+  //'https://www.hvakosterstrommen.no/api/v1/prices/2023/01-06_NO1.json'
   const data = await response.json();
   return data;
 }

@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/API/__pycache__
 # dependencies
 /stacc-challenge-public/node_modules
 /stacc-challenge-public/.pnp
