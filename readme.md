@@ -11,9 +11,9 @@ First, we need to clone the project, and install Uvicorn and FastAPI to run the 
 ```bash
 git clone https://github.com/H584958/StaccElectricity.git
 
-pip install fastapi uvicorn
-
 cd ./API
+
+pip install fastapi uvicorn
 
 uvicorn main:app --host 0.0.0.0 --port 3306 --reload
 ```
